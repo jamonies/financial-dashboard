@@ -81,6 +81,45 @@
 
   /* Results */
   .results { margin-top: 2rem; }
+  .export-row { display: none; margin-top: 10px; }
+  .export-row.visible { display: flex; }
+  .export-btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; background: #fff; color: var(--ink-muted); border: 1px solid var(--border-strong); border-radius: var(--radius); font-family: 'Instrument Sans', sans-serif; font-size: 12.5px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+  .export-btn:hover { background: var(--accent-light); border-color: var(--accent-mid); color: var(--accent); }
+  .export-btn svg { width: 13px; height: 13px; pointer-events: none; }
+  #funder-preset { max-width: 320px; }
+
+  /* Funder guideline reference cards */
+  .guideline-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); margin-bottom: 12px; overflow: hidden; }
+  .guideline-card-header { display: flex; align-items: center; gap: 12px; padding: 14px 18px; cursor: pointer; transition: background 0.15s; }
+  .guideline-card-header:hover { background: var(--accent-light); }
+  .guideline-card-icon { width: 32px; height: 32px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'DM Serif Display', serif; font-size: 15px; }
+  .guideline-card-titles { flex: 1; }
+  .guideline-card-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+  .guideline-card-summary { font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+  .guideline-card-chevron { color: var(--ink-faint); transition: transform 0.2s; flex-shrink: 0; }
+  .guideline-card-chevron svg { width: 16px; height: 16px; }
+  .guideline-card.expanded .guideline-card-chevron { transform: rotate(180deg); }
+  .guideline-card-body { display: none; padding: 0 18px 16px; border-top: 1px solid var(--border); }
+  .guideline-card.expanded .guideline-card-body { display: block; padding-top: 14px; }
+  .guideline-card-body ul { margin: 0; padding-left: 0; display: flex; flex-direction: column; gap: 6px; list-style: none; }
+  .guideline-card-body li { font-size: 13px; color: var(--ink-muted); line-height: 1.6; display: flex; align-items: flex-start; gap: 8px; cursor: pointer; }
+  .guideline-card-body li mark { background: #FDF3E3; color: var(--ink); padding: 0 2px; border-radius: 3px; }
+  .guideline-card-body li input[type="checkbox"] { margin-top: 3px; flex-shrink: 0; width: 14px; height: 14px; accent-color: var(--accent); cursor: pointer; }
+  .guideline-card-body li.checked { color: var(--ink-faint); text-decoration: line-through; }
+  .checklist-progress-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; gap: 10px; }
+  .checklist-progress-bar { flex: 1; height: 5px; background: var(--border); border-radius: 4px; overflow: hidden; }
+  .checklist-progress-fill { height: 100%; background: var(--accent-mid); transition: width 0.2s; }
+  .checklist-progress-label { font-family: 'DM Mono', monospace; font-size: 10.5px; color: var(--ink-faint); white-space: nowrap; }
+  .checklist-reset-btn { font-family: 'DM Mono', monospace; font-size: 10.5px; color: var(--ink-faint); background: none; border: none; cursor: pointer; padding: 0; text-decoration: underline; white-space: nowrap; }
+  .checklist-reset-btn:hover { color: var(--danger); }
+  .guideline-use-btn { margin-top: 12px; display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; background: var(--accent); color: #fff; border: none; border-radius: var(--radius); font-family: 'Instrument Sans', sans-serif; font-size: 12.5px; font-weight: 600; cursor: pointer; transition: background 0.15s; }
+  .guideline-use-btn:hover { background: var(--accent-mid); }
+  .guideline-use-btn svg { width: 13px; height: 13px; pointer-events: none; }
+  .guideline-use-btn.secondary { background: #fff; color: var(--accent); border: 1px solid var(--accent); }
+  .guideline-use-btn.secondary:hover { background: var(--accent-light); }
+  .guideline-btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .guideline-btn-row .guideline-use-btn { margin-top: 0; }
+  .guideline-no-results { text-align: center; padding: 2rem; color: var(--ink-faint); font-size: 13px; }
   .results-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
   .results-header { background: var(--ink); color: var(--cream); padding: 12px 18px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
   .results-header .dot { width: 7px; height: 7px; background: #5BAD7A; border-radius: 50%; }
@@ -96,7 +135,7 @@
   .result-section-title:first-child { margin-top: 0; }
   .result-prose { font-size: 13.5px; color: var(--ink-muted); line-height: 1.65; margin: 6px 0 10px; }
 
-  /* Upload tab — fixed: no full-page invisible overlay */
+  /* Upload tab */
   .upload-zone { border: 2px dashed var(--border-strong); border-radius: var(--radius-lg); padding: 2.5rem 2rem; text-align: center; background: #fff; transition: all 0.2s; }
   .upload-zone.drag-over { border-color: var(--accent-mid); background: var(--accent-light); }
   .upload-btn-label { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 9px 20px; background: var(--accent); color: #fff; border-radius: var(--radius); font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.15s; }
@@ -121,23 +160,54 @@
   .rt-title { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
   .rt-desc { font-size: 11.5px; color: var(--ink-muted); line-height: 1.4; }
 
-  /* Chat tab */
+  /* Inline chat (below results) */
+  .inline-chat { margin-top: 1.5rem; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; display: none; }
+  .inline-chat.visible { display: block; }
+  .inline-chat-header { background: var(--ink); color: var(--cream); padding: 10px 16px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+  .inline-chat-header .dot { width: 7px; height: 7px; background: #5BAD7A; border-radius: 50%; }
+  .inline-chat-messages { background: #fff; max-height: 380px; overflow-y: auto; padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: 12px; scroll-behavior: smooth; }
+  .inline-chat-messages::-webkit-scrollbar { width: 4px; }
+  .inline-chat-messages::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 10px; }
+  .inline-chat-input-row { display: flex; gap: 8px; padding: 10px 12px; border-top: 1px solid var(--border); background: #fafaf8; align-items: flex-end; }
+  .inline-chat-input-row textarea { min-height: 38px; max-height: 100px; border-radius: 10px; padding: 8px 12px; font-size: 13px; resize: none; border: 1px solid var(--border-strong); flex: 1; margin: 0; background: #fff; }
+  .inline-send-btn { width: 36px; height: 36px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.15s; }
+  .inline-send-btn:hover { background: var(--accent-mid); }
+  .inline-send-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .inline-send-btn svg { width: 14px; height: 14px; color: #fff; pointer-events: none; }
+  .inline-clear-btn { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--ink-faint); background: none; border: none; cursor: pointer; padding: 2px 6px; display: inline-flex; align-items: center; gap: 4px; margin-left: auto; }
+  .inline-clear-btn:hover { color: var(--danger); }
+  .inline-clear-btn svg { pointer-events: none; }
+
+  /* Shared message styles (inline + standalone chat) */
+  .msg { display: flex; flex-direction: column; gap: 3px; max-width: 80%; }
+  .msg.user { align-self: flex-end; align-items: flex-end; }
+  .msg.assistant { align-self: flex-start; align-items: flex-start; }
+  .msg-bubble { padding: 9px 13px; border-radius: 14px; font-size: 13px; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
+  .msg.user .msg-bubble { background: var(--accent); color: #fff; border-bottom-right-radius: 3px; }
+  .msg.assistant .msg-bubble { background: var(--cream); color: var(--ink); border: 1px solid var(--border); border-bottom-left-radius: 3px; }
+  .msg-label { font-family: 'DM Mono', monospace; font-size: 9.5px; color: var(--ink-faint); letter-spacing: 0.05em; padding: 0 3px; }
+  .chat-typing .msg-bubble { display: flex; align-items: center; gap: 5px; padding: 11px 14px; }
+  .typing-dot { width: 6px; height: 6px; background: var(--ink-faint); border-radius: 50%; animation: typingBounce 1.2s infinite; }
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typingBounce { 0%,60%,100% { transform: translateY(0); opacity: 0.4; } 30% { transform: translateY(-5px); opacity: 1; } }
+
+  /* Inline chat file attachment */
+  .inline-attach-input { display: none; }
+  .inline-attach-btn { width: 32px; height: 32px; border-radius: 50%; background: none; border: 1px solid var(--border-strong); cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--ink-muted); transition: all 0.15s; -webkit-appearance: none; }
+  .inline-attach-btn:hover { background: var(--accent-light); border-color: var(--accent-mid); color: var(--accent); }
+  .inline-attach-btn svg { width: 14px; height: 14px; pointer-events: none; }
+  .inline-attached-file { display: flex; align-items: center; gap: 6px; background: var(--accent-light); border: 1px solid rgba(45,95,63,0.2); border-radius: var(--radius); padding: 5px 10px; margin: 0 12px 6px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); }
+  .inline-attached-file svg { width: 12px; height: 12px; flex-shrink: 0; }
+  .inline-attached-file .attach-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .inline-attached-file .attach-remove { background: none; border: none; cursor: pointer; color: var(--accent); display: flex; padding: 0; opacity: 0.6; }
+  .inline-attached-file .attach-remove:hover { opacity: 1; }
+
+  /* Standalone chat tab */
   .chat-wrap { display: flex; flex-direction: column; height: 620px; background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
   .chat-messages { flex: 1; overflow-y: auto; padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 14px; scroll-behavior: smooth; }
   .chat-messages::-webkit-scrollbar { width: 5px; }
   .chat-messages::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 10px; }
-  .msg { display: flex; flex-direction: column; gap: 4px; max-width: 78%; }
-  .msg.user { align-self: flex-end; align-items: flex-end; }
-  .msg.assistant { align-self: flex-start; align-items: flex-start; }
-  .msg-bubble { padding: 10px 14px; border-radius: 16px; font-size: 13.5px; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
-  .msg.user .msg-bubble { background: var(--accent); color: #fff; border-bottom-right-radius: 4px; }
-  .msg.assistant .msg-bubble { background: var(--cream); color: var(--ink); border: 1px solid var(--border); border-bottom-left-radius: 4px; }
-  .msg-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--ink-faint); letter-spacing: 0.05em; padding: 0 4px; }
-  .chat-typing .msg-bubble { display: flex; align-items: center; gap: 5px; padding: 12px 16px; }
-  .typing-dot { width: 7px; height: 7px; background: var(--ink-faint); border-radius: 50%; animation: typingBounce 1.2s infinite; }
-  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
-  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes typingBounce { 0%,60%,100% { transform: translateY(0); opacity: 0.4; } 30% { transform: translateY(-5px); opacity: 1; } }
   .chat-input-row { display: flex; gap: 10px; padding: 12px 14px; border-top: 1px solid var(--border); background: #fff; align-items: flex-end; }
   .chat-input-row textarea { min-height: 42px; max-height: 120px; border-radius: 12px; padding: 10px 14px; font-size: 13.5px; resize: none; border: 1px solid var(--border-strong); flex: 1; margin: 0; }
   .chat-send-btn { width: 40px; height: 40px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.15s; }
@@ -197,6 +267,10 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
     File Upload
   </button>
+  <button class="nav-tab" onclick="switchTab('guidelines', this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    Funder Guidelines
+  </button>
   <button class="nav-tab" onclick="switchTab('chat', this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
     Chat
@@ -220,6 +294,17 @@
     </div>
     <div class="input-group" style="margin-top:14px;">
       <div class="section-label">Funder guidelines or restrictions (optional)</div>
+      <div class="options-row" style="margin-top:0; margin-bottom:8px;">
+        <div class="option-group" style="flex:1;min-width:220px;">
+          <select id="funder-preset" onchange="applyFunderPreset()">
+            <option value="">— Load a preset —</option>
+            <option value="uswbsi">USWBSI (Barley/Wheat Scab Initiative)</option>
+            <option value="nsf">NSF (Standard Grant)</option>
+            <option value="nih">NIH (Modular Budget)</option>
+            <option value="usda_nifa">USDA-NIFA</option>
+          </select>
+        </div>
+      </div>
       <textarea id="grant-guidelines" style="min-height:70px;" placeholder="e.g. Indirect costs capped at 15%. No equipment over $5,000. Travel must be domestic only."></textarea>
     </div>
     <button class="run-btn" id="grant-btn" onclick="runGrantCheck()">
@@ -227,6 +312,40 @@
       Check for issues
     </button>
     <div id="grant-results" class="results"></div>
+    <div id="grant-export" class="export-row">
+      <button class="export-btn" onclick="exportToPDF('grant', 'Grant Budget Review')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+        Export as PDF
+      </button>
+    </div>
+    <div id="grant-chat" class="inline-chat">
+      <div class="inline-chat-header">
+        <div class="dot"></div>
+        Follow-up — discuss this analysis with Claude
+        <button class="inline-clear-btn" onclick="clearInlineChat('grant')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px;"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>
+          Clear
+        </button>
+      </div>
+      <div class="inline-chat-messages" id="grant-chat-messages"></div>
+      <div id="grant-attached-preview" class="inline-attached-file" style="display:none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <span class="attach-name" id="grant-attached-name"></span>
+        <button class="attach-remove" onclick="removeInlineAttachment('grant')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="inline-chat-input-row">
+        <button class="inline-attach-btn" title="Attach a file" onclick="document.getElementById('grant-attach-input').click()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+        </button>
+        <input type="file" id="grant-attach-input" class="inline-attach-input" accept=".xlsx,.xls,.csv,.pdf,.txt,.docx,.doc" onchange="handleInlineAttach(this, 'grant')" />
+        <textarea id="grant-chat-input" placeholder="Ask a follow-up question about this analysis..." rows="1" onkeydown="handleInlineChatKey(event, 'grant')"></textarea>
+        <button class="inline-send-btn" id="grant-chat-send" onclick="sendInlineChat('grant')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+    </div>
   </div>
 
   <!-- VARIANCE ANALYSIS -->
@@ -262,6 +381,40 @@
       Analyze variances
     </button>
     <div id="var-results" class="results"></div>
+    <div id="variance-export" class="export-row">
+      <button class="export-btn" onclick="exportToPDF('variance', 'Variance Analysis')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+        Export as PDF
+      </button>
+    </div>
+    <div id="variance-chat" class="inline-chat">
+      <div class="inline-chat-header">
+        <div class="dot"></div>
+        Follow-up — discuss this analysis with Claude
+        <button class="inline-clear-btn" onclick="clearInlineChat('variance')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px;"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>
+          Clear
+        </button>
+      </div>
+      <div class="inline-chat-messages" id="variance-chat-messages"></div>
+      <div id="variance-attached-preview" class="inline-attached-file" style="display:none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <span class="attach-name" id="variance-attached-name"></span>
+        <button class="attach-remove" onclick="removeInlineAttachment('variance')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="inline-chat-input-row">
+        <button class="inline-attach-btn" title="Attach a file" onclick="document.getElementById('variance-attach-input').click()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+        </button>
+        <input type="file" id="variance-attach-input" class="inline-attach-input" accept=".xlsx,.xls,.csv,.pdf,.txt,.docx,.doc" onchange="handleInlineAttach(this, 'variance')" />
+        <textarea id="variance-chat-input" placeholder="Ask a follow-up question about this analysis..." rows="1" onkeydown="handleInlineChatKey(event, 'variance')"></textarea>
+        <button class="inline-send-btn" id="variance-chat-send" onclick="sendInlineChat('variance')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+    </div>
   </div>
 
   <!-- VERSION COMPARE -->
@@ -286,6 +439,40 @@
       Compare versions
     </button>
     <div id="ver-results" class="results"></div>
+    <div id="version-export" class="export-row">
+      <button class="export-btn" onclick="exportToPDF('version', 'Budget Version Comparison')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+        Export as PDF
+      </button>
+    </div>
+    <div id="version-chat" class="inline-chat">
+      <div class="inline-chat-header">
+        <div class="dot"></div>
+        Follow-up — discuss this analysis with Claude
+        <button class="inline-clear-btn" onclick="clearInlineChat('version')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px;"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>
+          Clear
+        </button>
+      </div>
+      <div class="inline-chat-messages" id="version-chat-messages"></div>
+      <div id="version-attached-preview" class="inline-attached-file" style="display:none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <span class="attach-name" id="version-attached-name"></span>
+        <button class="attach-remove" onclick="removeInlineAttachment('version')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="inline-chat-input-row">
+        <button class="inline-attach-btn" title="Attach a file" onclick="document.getElementById('version-attach-input').click()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+        </button>
+        <input type="file" id="version-attach-input" class="inline-attach-input" accept=".xlsx,.xls,.csv,.pdf,.txt,.docx,.doc" onchange="handleInlineAttach(this, 'version')" />
+        <textarea id="version-chat-input" placeholder="Ask a follow-up question about this analysis..." rows="1" onkeydown="handleInlineChatKey(event, 'version')"></textarea>
+        <button class="inline-send-btn" id="version-chat-send" onclick="sendInlineChat('version')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+    </div>
   </div>
 
   <!-- FILE UPLOAD -->
@@ -334,9 +521,52 @@
       Review files
     </button>
     <div id="upload-results" class="results"></div>
+    <div id="upload-export" class="export-row">
+      <button class="export-btn" onclick="exportToPDF('upload', 'File Upload Review')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+        Export as PDF
+      </button>
+    </div>
+    <div id="upload-chat" class="inline-chat">
+      <div class="inline-chat-header">
+        <div class="dot"></div>
+        Follow-up — discuss this analysis with Claude
+        <button class="inline-clear-btn" onclick="clearInlineChat('upload')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px;"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>
+          Clear
+        </button>
+      </div>
+      <div class="inline-chat-messages" id="upload-chat-messages"></div>
+      <div id="upload-attached-preview" class="inline-attached-file" style="display:none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <span class="attach-name" id="upload-attached-name"></span>
+        <button class="attach-remove" onclick="removeInlineAttachment('upload')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="inline-chat-input-row">
+        <button class="inline-attach-btn" title="Attach a file" onclick="document.getElementById('upload-attach-input').click()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+        </button>
+        <input type="file" id="upload-attach-input" class="inline-attach-input" accept=".xlsx,.xls,.csv,.pdf,.txt,.docx,.doc" onchange="handleInlineAttach(this, 'upload')" />
+        <textarea id="upload-chat-input" placeholder="Ask a follow-up question about this analysis..." rows="1" onkeydown="handleInlineChatKey(event, 'upload')"></textarea>
+        <button class="inline-send-btn" id="upload-chat-send" onclick="sendInlineChat('upload')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+    </div>
   </div>
 
-  <!-- CHAT -->
+  <!-- FUNDER GUIDELINES REFERENCE -->
+  <div id="panel-guidelines" class="panel">
+    <p class="panel-desc">Browse compliance requirements for common funders. Use these as a quick reference, or load them directly into the Grant Checker.</p>
+    <div class="input-group" style="margin-bottom:1.25rem;">
+      <input type="text" id="guidelines-search" placeholder="Search guidelines (e.g. &quot;indirect cost&quot;, &quot;equipment&quot;, &quot;travel&quot;)..." oninput="renderGuidelinesCards()" />
+    </div>
+    <div id="guidelines-cards"></div>
+  </div>
+
+  <!-- STANDALONE CHAT -->
   <div id="panel-chat" class="panel">
     <p class="panel-desc">Ask Claude anything about your budget, grant requirements, financial strategy, or anything else. Full conversation history is maintained within the session.</p>
     <div class="chat-wrap">
@@ -354,7 +584,7 @@
       </div>
     </div>
     <button class="chat-clear-btn" onclick="clearChat()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px;"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px;"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>
       Clear conversation
     </button>
   </div>
@@ -367,6 +597,211 @@
 </div>
 
 <script>
+var SYSTEM_PROMPT = 'You are a helpful financial and grant management assistant embedded in a budget review dashboard. Help with grant budgets, compliance, financial analysis, budget justifications, and related topics. Be concise, practical, and direct.';
+
+// ── Funder guideline reference data ──────────────────────
+// Single source of truth: used by the Grant Checker preset dropdown
+// AND the Funder Guidelines reference tab.
+// Shared instruction appended to every analysis prompt — asks Claude to
+// self-report what was directly extracted vs. interpreted/assumed.
+var CAVEAT_INSTRUCTIONS = '\n\n## Confidence & Caveats\n\ud83d\udd35 State which figures came directly from the provided data vs. were calculated or inferred.\n\ud83d\udd35 Note any assumptions made due to ambiguous, missing, or incomplete information.\n\ud83d\udd35 Flag anything that should be verified against original source documents before relying on this analysis.';
+
+var FUNDER_GUIDELINES = {
+  uswbsi: {
+    name: 'U.S. Wheat & Barley Scab Initiative (USWBSI)',
+    abbr: 'WB',
+    summary: 'Indirect costs capped at 10% TFFA. Single-PI budget template for Category 1 (BAR-CP).',
+    rules: [
+      'Indirect costs (F&A) capped at 10% of Total Federal Funds Allowable (TFFA).',
+      'No equipment purchases over $5,000 unless pre-approved.',
+      'Domestic travel only unless otherwise justified.',
+      'Budget must include a line-item justification for every category with requested funds.',
+      'Single-PI budget template required for Category 1 (BAR-CP) proposals.'
+    ]
+  },
+  nsf: {
+    name: 'National Science Foundation (NSF) — Standard Grant',
+    abbr: 'NSF',
+    summary: 'Negotiated F&A rate. Senior personnel typically capped at 2 months effort/year. 3-page justification limit.',
+    rules: [
+      'Indirect costs follow the institution\u2019s federally negotiated rate.',
+      'Senior personnel salary requests typically capped at 2 months of effort per year (varies by program).',
+      'Participant support costs must be budgeted separately and cannot be repurposed without prior approval.',
+      'Budget justification limited to 3 pages.',
+      'Equipment defined as items costing $5,000 or more with a useful life of more than one year.'
+    ]
+  },
+  nih: {
+    name: 'National Institutes of Health (NIH) — Modular Budget',
+    abbr: 'NIH',
+    summary: 'Modular budgets in $25,000 increments, up to $250,000/year direct costs. F&A added on top.',
+    rules: [
+      'Modular budgets requested in increments of $25,000 (direct costs), up to $250,000 per year.',
+      'No detailed line-item categories required for modular budgets, but justification needed for personnel and any variation in modules requested across years.',
+      'F&A (indirect) costs calculated separately using the institution\u2019s negotiated rate and added on top of the modular direct cost request.',
+      'Consultant costs, equipment, and any subaward costs over $25,000 must be itemized even in a modular budget.'
+    ]
+  },
+  usda_nifa: {
+    name: 'USDA National Institute of Food and Agriculture (NIFA)',
+    abbr: 'NI',
+    summary: 'Indirect costs per negotiated rate agreement. Equipment over $5,000 needs justification.',
+    rules: [
+      'Indirect costs capped per the institution\u2019s negotiated rate agreement, subject to any program-specific caps stated in the RFA.',
+      'Equipment over $5,000 requires justification and must be tied directly to project objectives.',
+      'Tuition remission for graduate students allowable if budgeted and justified.',
+      'Budget justification required for every line item, including basis for salary/wage rates and fringe benefit rate calculations.'
+    ]
+  }
+};
+
+// Flatten a guideline entry into the plain-text format the Grant Checker expects
+function guidelineToText(key) {
+  var g = FUNDER_GUIDELINES[key];
+  var lines = ['Funder: ' + g.name + '.'];
+  for (var i = 0; i < g.rules.length; i++) lines.push(g.rules[i]);
+  return lines.join('\n');
+}
+
+function applyFunderPreset() {
+  var sel = document.getElementById('funder-preset');
+  var val = sel.value;
+  if (!val) return;
+  document.getElementById('grant-guidelines').value = guidelineToText(val);
+}
+
+// ── Funder Guidelines reference tab ──────────────────────
+var expandedGuidelineCards = {};
+
+// ── Compliance checklist state (persisted per funder) ────
+function getChecklistState(key) {
+  try {
+    var raw = localStorage.getItem('frb_checklist_' + key);
+    return raw ? JSON.parse(raw) : {};
+  } catch(e) { return {}; }
+}
+
+function saveChecklistState(key, state) {
+  try { localStorage.setItem('frb_checklist_' + key, JSON.stringify(state)); } catch(e) {}
+}
+
+function toggleChecklistItem(e, key, idx) {
+  if (e) e.stopPropagation();
+  var state = getChecklistState(key);
+  state[idx] = !state[idx];
+  saveChecklistState(key, state);
+  renderGuidelinesCards();
+}
+
+function resetChecklist(e, key) {
+  if (e) e.stopPropagation();
+  saveChecklistState(key, {});
+  renderGuidelinesCards();
+}
+
+function highlightMatch(text, query) {
+  if (!query) return escapeHtml(text);
+  var escaped = escapeHtml(text);
+  var escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  var re = new RegExp('(' + escapedQuery + ')', 'ig');
+  return escaped.replace(re, '<mark>$1</mark>');
+}
+
+function renderGuidelinesCards() {
+  var query = document.getElementById('guidelines-search').value.trim().toLowerCase();
+  var container = document.getElementById('guidelines-cards');
+  var html = '';
+  var anyVisible = false;
+
+  var keys = Object.keys(FUNDER_GUIDELINES);
+  for (var i = 0; i < keys.length; i++) {
+    var key = keys[i];
+    var g = FUNDER_GUIDELINES[key];
+
+    var matchingRules = g.rules;
+    var nameMatches = g.name.toLowerCase().indexOf(query) !== -1 || g.summary.toLowerCase().indexOf(query) !== -1;
+
+    if (query) {
+      matchingRules = g.rules.filter(function(r) { return r.toLowerCase().indexOf(query) !== -1; });
+      if (!nameMatches && matchingRules.length === 0) continue;
+      if (matchingRules.length === 0) matchingRules = g.rules; // name matched, show all rules
+    }
+
+    anyVisible = true;
+    var isExpanded = expandedGuidelineCards[key] || (query && matchingRules.length > 0 && matchingRules.length < g.rules.length);
+    var checkedState = getChecklistState(key);
+    var checkedCount = g.rules.reduce(function(sum, r, idx) { return sum + (checkedState[idx] ? 1 : 0); }, 0);
+    var pct = Math.round((checkedCount / g.rules.length) * 100);
+
+    html += '<div class="guideline-card' + (isExpanded ? ' expanded' : '') + '" id="card-' + key + '">';
+    html += '<div class="guideline-card-header" onclick="toggleGuidelineCard(\'' + key + '\')">';
+    html += '<div class="guideline-card-icon">' + g.abbr + '</div>';
+    html += '<div class="guideline-card-titles">';
+    html += '<div class="guideline-card-name">' + highlightMatch(g.name, query) + '</div>';
+    html += '<div class="guideline-card-summary">' + highlightMatch(g.summary, query) + '</div>';
+    html += '</div>';
+    html += '<div class="guideline-card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>';
+    html += '</div>';
+    html += '<div class="guideline-card-body">';
+    html += '<div class="checklist-progress-row">';
+    html += '<span class="checklist-progress-label">Compliance checklist: ' + checkedCount + ' / ' + g.rules.length + '</span>';
+    html += '<div class="checklist-progress-bar"><div class="checklist-progress-fill" style="width:' + pct + '%;"></div></div>';
+    html += '<button class="checklist-reset-btn" onclick="resetChecklist(event, \'' + key + '\')">Reset</button>';
+    html += '</div>';
+    html += '<ul>';
+    for (var j = 0; j < g.rules.length; j++) {
+      var rule = g.rules[j];
+      if (query && matchingRules.indexOf(rule) === -1) continue;
+      var isChecked = !!checkedState[j];
+      html += '<li class="' + (isChecked ? 'checked' : '') + '" onclick="toggleChecklistItem(event, \'' + key + '\', ' + j + ')">';
+      html += '<input type="checkbox" ' + (isChecked ? 'checked' : '') + ' onclick="event.stopPropagation(); toggleChecklistItem(event, \'' + key + '\', ' + j + ')" />';
+      html += '<span>' + highlightMatch(rule, query) + '</span>';
+      html += '</li>';
+    }
+    html += '</ul>';
+    html += '<div class="guideline-btn-row" style="margin-top:12px;">';
+    html += '<button class="guideline-use-btn" onclick="useGuidelineInGrantChecker(\'' + key + '\')">';
+    html += '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>';
+    html += 'Use in Grant Checker</button>';
+    html += '<button class="guideline-use-btn secondary" onclick="useGuidelineInFileUpload(\'' + key + '\')">';
+    html += '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>';
+    html += 'Use in File Upload</button>';
+    html += '</div>';
+    html += '</div></div>';
+  }
+
+  if (!anyVisible) {
+    html = '<div class="guideline-no-results">No guidelines match your search.</div>';
+  }
+
+  container.innerHTML = html;
+}
+
+function toggleGuidelineCard(key) {
+  expandedGuidelineCards[key] = !expandedGuidelineCards[key];
+  var card = document.getElementById('card-' + key);
+  if (card) card.classList.toggle('expanded');
+}
+
+function useGuidelineInGrantChecker(key) {
+  document.getElementById('grant-guidelines').value = guidelineToText(key);
+  document.getElementById('funder-preset').value = key;
+  var grantTab = document.querySelector('.nav-tab[onclick*="\'grant\'"]');
+  switchTab('grant', grantTab);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function useGuidelineInFileUpload(key) {
+  document.getElementById('upload-context').value = guidelineToText(key);
+  // Default the review type to Grant Checker, since funder rules are most relevant there
+  var grantCard = document.querySelector('.review-type-card[data-type="grant"]');
+  if (grantCard) selectReviewType(grantCard);
+  var uploadTab = document.querySelector('.nav-tab[onclick*="\'upload\'"]');
+  switchTab('upload', uploadTab);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+
 // ── API Key ──────────────────────────────────────────────
 var _apiKey = '';
 try { _apiKey = localStorage.getItem('frb_api_key') || ''; } catch(e) {}
@@ -383,9 +818,8 @@ function saveApiKey() {
 
 function setApiStatus(saved) {
   var el = document.getElementById('api-status');
-  var txt = document.getElementById('api-status-text');
   el.className = 'api-status ' + (saved ? 'saved' : 'unset');
-  txt.textContent = saved ? 'Key saved' : 'No key set';
+  document.getElementById('api-status-text').textContent = saved ? 'Key saved' : 'No key set';
 }
 
 // ── Tabs ─────────────────────────────────────────────────
@@ -410,7 +844,86 @@ function showError(resultsId, msg) {
     '<p style="color:var(--danger);font-size:13px;padding:1rem 0;">Error: ' + msg + '</p>';
 }
 
-function renderResults(resultsId, text) {
+var lastResultText = {};
+
+var TAB_LABELS = {
+  grant: 'Grant Budget Review',
+  variance: 'Variance Analysis',
+  version: 'Budget Version Comparison',
+  upload: 'File Upload Review'
+};
+
+function exportToPDF(tabId, title) {
+  var text = lastResultText[tabId];
+  if (!text) { alert('No results to export yet.'); return; }
+
+  var lines = text.split('\n');
+  var bodyHtml = '';
+  for (var i = 0; i < lines.length; i++) {
+    var line = lines[i].trim();
+    if (!line) continue;
+    if (line.indexOf('## ') === 0) {
+      bodyHtml += '<h2>' + escapeHtml(line.slice(3)) + '</h2>';
+    } else if (line.charCodeAt(0) === 9989) {
+      bodyHtml += '<div class="row"><span class="tag tag-ok">OK</span><span>' + escapeHtml(line.replace(/^\u2705\s*/, '')) + '</span></div>';
+    } else if (line.charCodeAt(0) === 9888) {
+      bodyHtml += '<div class="row"><span class="tag tag-warn">Review</span><span>' + escapeHtml(line.replace(/^[\u26A0\uFE0F]+\s*/, '')) + '</span></div>';
+    } else if (line.charCodeAt(0) === 10060) {
+      bodyHtml += '<div class="row"><span class="tag tag-danger">Issue</span><span>' + escapeHtml(line.replace(/^\u274C\s*/, '')) + '</span></div>';
+    } else if (line.charCodeAt(0) === 55357) {
+      bodyHtml += '<div class="row"><span class="tag tag-note">Note</span><span>' + escapeHtml(line.replace(/^.\s*/, '')) + '</span></div>';
+    } else {
+      bodyHtml += '<p>' + escapeHtml(line) + '</p>';
+    }
+  }
+
+  var now = new Date();
+  var dateStr = now.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+
+  var docHtml = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>' + escapeHtml(title) + '</title><style>' +
+    'body{font-family:Helvetica,Arial,sans-serif;color:#1A1A18;padding:40px;max-width:760px;margin:0 auto;}' +
+    'h1{font-size:22px;margin-bottom:4px;}' +
+    '.meta{font-size:12px;color:#9C9C96;margin-bottom:24px;font-family:monospace;}' +
+    'h2{font-size:15px;margin:20px 0 8px;padding-bottom:4px;border-bottom:1px solid #ddd;}' +
+    'p{font-size:13px;color:#5C5C58;line-height:1.6;margin:4px 0 8px;}' +
+    '.row{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid #eee;font-size:13px;}' +
+    '.tag{font-size:10px;font-weight:bold;padding:2px 8px;border-radius:10px;white-space:nowrap;flex-shrink:0;font-family:monospace;text-transform:uppercase;}' +
+    '.tag-ok{background:#E8F0EB;color:#2D5F3F;}' +
+    '.tag-warn{background:#FDF3E3;color:#8C5E1A;}' +
+    '.tag-danger{background:#FDECEC;color:#8C1F1F;}' +
+    '.tag-note{background:#E8F0F8;color:#1A4A6E;}' +
+    '.footer{margin-top:30px;padding-top:10px;border-top:1px solid #ddd;font-size:10px;color:#9C9C96;font-family:monospace;}' +
+    '@media print{body{padding:20px;}}' +
+    '</style></head><body>' +
+    '<h1>' + escapeHtml(title) + '</h1>' +
+    '<div class="meta">Financial Review Dashboard &middot; Generated ' + dateStr + '</div>' +
+    bodyHtml +
+    '<div class="footer">AI-generated analysis &mdash; always verify figures before submission.</div>' +
+    '</body></html>';
+
+  var win = window.open('', '_blank');
+  if (!win) { alert('Please allow popups to export as PDF.'); return; }
+  win.document.open();
+  win.document.write(docHtml);
+  win.document.close();
+  win.onload = function() {
+    win.focus();
+    win.print();
+  };
+  // Fallback in case onload doesn't fire (some browsers with document.write)
+  setTimeout(function() {
+    win.focus();
+    win.print();
+  }, 400);
+}
+
+function escapeHtml(str) {
+  var div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function renderResults(resultsId, text, tabId) {
   var lines = text.split('\n');
   var html = '<div class="results-card"><div class="results-header"><div class="dot"></div>Analysis complete</div><div class="results-body">';
   for (var i = 0; i < lines.length; i++) {
@@ -432,16 +945,22 @@ function renderResults(resultsId, text) {
   }
   html += '</div></div>';
   document.getElementById(resultsId).innerHTML = html;
+
+  if (tabId) {
+    lastResultText[tabId] = text;
+    var exportRow = document.getElementById(tabId + '-export');
+    if (exportRow) exportRow.classList.add('visible');
+  }
 }
 
-async function callClaude(prompt, system) {
+async function callClaude(messages, system) {
   if (!_apiKey) throw new Error('No API key set. Enter your Anthropic API key above and click Save.');
   var body = {
-    model: 'claude-sonnet-4-20250514',
+    model: 'claude-sonnet-4-5',
     max_tokens: 1000,
-    messages: typeof prompt === 'string' ? [{ role: 'user', content: prompt }] : prompt
+    messages: Array.isArray(messages) ? messages : [{ role: 'user', content: messages }],
+    system: system || SYSTEM_PROMPT
   };
-  if (system) body.system = system;
   var resp = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: {
@@ -457,6 +976,91 @@ async function callClaude(prompt, system) {
   return data.content.map(function(b) { return b.text || ''; }).join('');
 }
 
+// ── Message rendering (shared) ───────────────────────────
+function createMsgEl(role, text) {
+  var div = document.createElement('div');
+  div.className = 'msg ' + role;
+  var label = document.createElement('div');
+  label.className = 'msg-label';
+  label.textContent = role === 'user' ? 'You' : 'Claude';
+  var bubble = document.createElement('div');
+  bubble.className = 'msg-bubble';
+  bubble.textContent = text;
+  div.appendChild(label);
+  div.appendChild(bubble);
+  return div;
+}
+
+function createTypingEl() {
+  var div = document.createElement('div');
+  div.className = 'msg assistant chat-typing';
+  div.innerHTML = '<div class="msg-bubble"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
+  return div;
+}
+
+// ── Inline contextual chat ───────────────────────────────
+// Each tab has its own history seeded with the analysis context
+var inlineHistories = { grant: [], variance: [], version: [], upload: [] };
+var inlineBusy = { grant: false, variance: false, version: false, upload: false };
+
+function showInlineChat(tabId, contextSummary) {
+  var chatEl = document.getElementById(tabId + '-chat');
+  chatEl.classList.add('visible');
+  // Seed history with analysis context (invisible to user, visible to Claude)
+  inlineHistories[tabId] = [
+    { role: 'user', content: 'Here is the analysis that was just run:\n\n' + contextSummary + '\n\nI may have follow-up questions about this.' },
+    { role: 'assistant', content: 'I have reviewed the analysis above and am ready to discuss it. What questions do you have?' }
+  ];
+  // Scroll results into view
+  setTimeout(function() {
+    chatEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+}
+
+function handleInlineChatKey(e, tabId) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendInlineChat(tabId); }
+}
+
+async function sendInlineChat(tabId) {
+  if (inlineBusy[tabId]) return;
+  var input = document.getElementById(tabId + '-chat-input');
+  var text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  inlineBusy[tabId] = true;
+  document.getElementById(tabId + '-chat-send').disabled = true;
+
+  var messagesEl = document.getElementById(tabId + '-chat-messages');
+  var userEl = createMsgEl('user', text);
+  messagesEl.appendChild(userEl);
+  inlineHistories[tabId].push({ role: 'user', content: text });
+
+  var typingEl = createTypingEl();
+  messagesEl.appendChild(typingEl);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+
+  try {
+    var reply = await callClaude(inlineHistories[tabId], SYSTEM_PROMPT);
+    typingEl.remove();
+    var replyEl = createMsgEl('assistant', reply);
+    messagesEl.appendChild(replyEl);
+    inlineHistories[tabId].push({ role: 'assistant', content: reply });
+  } catch(e) {
+    typingEl.remove();
+    messagesEl.appendChild(createMsgEl('assistant', 'Sorry, something went wrong: ' + e.message));
+  }
+
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+  inlineBusy[tabId] = false;
+  document.getElementById(tabId + '-chat-send').disabled = false;
+  input.focus();
+}
+
+function clearInlineChat(tabId) {
+  inlineHistories[tabId] = [];
+  document.getElementById(tabId + '-chat-messages').innerHTML = '';
+}
+
 // ── Grant Checker ────────────────────────────────────────
 async function runGrantCheck() {
   var budget = document.getElementById('grant-budget').value.trim();
@@ -464,9 +1068,14 @@ async function runGrantCheck() {
   var guidelines = document.getElementById('grant-guidelines').value.trim();
   if (!budget || !narrative) { alert('Please enter both budget figures and a justification narrative.'); return; }
   setLoading('grant-results', 'grant-btn', true);
+  clearInlineChat('grant');
+  document.getElementById('grant-chat').classList.remove('visible');
+  document.getElementById('grant-export').classList.remove('visible');
   try {
-    var prompt = 'You are a grant budget analyst. Review this budget and justification for inconsistencies, math errors, rate mismatches, missing categories, and compliance issues.\n\nBUDGET:\n' + budget + '\n\nJUSTIFICATION NARRATIVE:\n' + narrative + (guidelines ? '\n\nFUNDER GUIDELINES:\n' + guidelines : '') + '\n\nRespond ONLY in this format — no preamble:\n\n## Summary\nOne or two sentences on your overall finding.\n\n## Line-by-line findings\n\u2705 [item] — if it checks out\n\u26a0\ufe0f [item] — if it needs review\n\u274c [item] — if there is a clear error\n\ud83d\udd35 [item] — if it is a note or recommendation\n\n## Overall assessment\n1-2 sentences on readiness and critical fixes needed.';
-    renderResults('grant-results', await callClaude(prompt));
+    var prompt = 'You are a grant budget analyst. Review this budget and justification for inconsistencies, math errors, rate mismatches, missing categories, and compliance issues.\n\nBUDGET:\n' + budget + '\n\nJUSTIFICATION NARRATIVE:\n' + narrative + (guidelines ? '\n\nFUNDER GUIDELINES:\n' + guidelines : '') + '\n\nRespond ONLY in this format:\n\n## Summary\nOne or two sentences on your overall finding.\n\n## Line-by-line findings\n\u2705 [item] — if it checks out\n\u26a0\ufe0f [item] — if it needs review\n\u274c [item] — if there is a clear error\n\ud83d\udd35 [item] — if it is a note or recommendation\n\n## Overall assessment\n1-2 sentences on readiness and critical fixes needed.' + CAVEAT_INSTRUCTIONS;
+    var result = await callClaude(prompt);
+    renderResults('grant-results', result, 'grant');
+    showInlineChat('grant', 'BUDGET:\n' + budget + '\n\nJUSTIFICATION:\n' + narrative + (guidelines ? '\n\nGUIDELINES:\n' + guidelines : '') + '\n\nANALYSIS RESULT:\n' + result);
   } catch(e) { showError('grant-results', e.message); }
   document.getElementById('grant-btn').disabled = false;
 }
@@ -479,9 +1088,14 @@ async function runVariance() {
   var context = document.getElementById('var-context').value.trim();
   if (!planned || !actual) { alert('Please enter both planned and actual figures.'); return; }
   setLoading('var-results', 'var-btn', true);
+  clearInlineChat('variance');
+  document.getElementById('variance-chat').classList.remove('visible');
+  document.getElementById('variance-export').classList.remove('visible');
   try {
-    var prompt = 'You are a financial analyst. Compare planned vs. actual budget figures. Flag any line item with a variance above ' + threshold + '%.\n\nCONTEXT: ' + (context || 'General budget review') + '\n\nPLANNED:\n' + planned + '\n\nACTUAL:\n' + actual + '\n\nRespond ONLY in this format:\n\n## Summary\nOverall variance picture in 1-2 sentences.\n\n## Line-by-line variance\n\u2705 [item]: planned X, actual Y — variance Z% — brief note\n\u26a0\ufe0f [item]: planned X, actual Y — variance Z% — brief explanation\n\u274c [item]: planned X, actual Y — variance Z% — significant issue\n\n## Recommendations\n\ud83d\udd35 [each recommendation or action item]';
-    renderResults('var-results', await callClaude(prompt));
+    var prompt = 'You are a financial analyst. Compare planned vs. actual budget figures. Flag any line item with a variance above ' + threshold + '%.\n\nCONTEXT: ' + (context || 'General budget review') + '\n\nPLANNED:\n' + planned + '\n\nACTUAL:\n' + actual + '\n\nRespond ONLY in this format:\n\n## Summary\nOverall variance picture in 1-2 sentences.\n\n## Line-by-line variance\n\u2705 [item]: planned X, actual Y — variance Z% — brief note\n\u26a0\ufe0f [item]: planned X, actual Y — variance Z% — brief explanation\n\u274c [item]: planned X, actual Y — variance Z% — significant issue\n\n## Recommendations\n\ud83d\udd35 [each recommendation or action item]' + CAVEAT_INSTRUCTIONS;
+    var result = await callClaude(prompt);
+    renderResults('var-results', result, 'variance');
+    showInlineChat('variance', 'PLANNED:\n' + planned + '\n\nACTUAL:\n' + actual + '\n\nTHRESHOLD: ' + threshold + '%\n\nANALYSIS RESULT:\n' + result);
   } catch(e) { showError('var-results', e.message); }
   document.getElementById('var-btn').disabled = false;
 }
@@ -493,9 +1107,14 @@ async function runVersionCompare() {
   var notes = document.getElementById('ver-notes').value.trim();
   if (!verA || !verB) { alert('Please enter both budget versions.'); return; }
   setLoading('ver-results', 'ver-btn', true);
+  clearInlineChat('version');
+  document.getElementById('version-chat').classList.remove('visible');
+  document.getElementById('version-export').classList.remove('visible');
   try {
-    var prompt = 'You are a budget analyst comparing two versions of a budget. Identify changes, assess whether they are material, and flag anything needing explanation.\n\nVERSION A (original):\n' + verA + '\n\nVERSION B (revised):\n' + verB + (notes ? '\n\nSTATED REASON FOR CHANGES:\n' + notes : '') + '\n\nRespond ONLY in this format:\n\n## Summary of changes\n1-2 sentences on the overall scope of change.\n\n## Line-by-line changes\n\u2705 [item]: no change\n\u26a0\ufe0f [item]: changed — note if explanation seems insufficient\n\u274c [item]: changed — flag if unexplained or concerning\n\ud83d\udd35 [item]: new line added or removed — note implications\n\n## Assessment\n\ud83d\udd35 [notes on justification quality, documentation needed, further questions]';
-    renderResults('ver-results', await callClaude(prompt));
+    var prompt = 'You are a budget analyst comparing two versions of a budget.\n\nVERSION A:\n' + verA + '\n\nVERSION B:\n' + verB + (notes ? '\n\nREASON FOR CHANGES:\n' + notes : '') + '\n\nRespond ONLY in this format:\n\n## Summary of changes\n1-2 sentences on the overall scope of change.\n\n## Line-by-line changes\n\u2705 [item]: no change\n\u26a0\ufe0f [item]: changed — note if explanation seems insufficient\n\u274c [item]: changed — flag if unexplained or concerning\n\ud83d\udd35 [item]: new line added or removed — note implications\n\n## Assessment\n\ud83d\udd35 [notes on justification quality and documentation needed]' + CAVEAT_INSTRUCTIONS;
+    var result = await callClaude(prompt);
+    renderResults('ver-results', result, 'version');
+    showInlineChat('version', 'VERSION A:\n' + verA + '\n\nVERSION B:\n' + verB + (notes ? '\n\nREASON:\n' + notes : '') + '\n\nANALYSIS RESULT:\n' + result);
   } catch(e) { showError('ver-results', e.message); }
   document.getElementById('ver-btn').disabled = false;
 }
@@ -505,17 +1124,14 @@ var uploadedFiles = [];
 var selectedReviewType = 'grant';
 
 window.addEventListener('load', function() {
-  document.getElementById('file-input').addEventListener('change', function() {
-    handleFiles(this.files);
-  });
+  document.getElementById('file-input').addEventListener('change', function() { handleFiles(this.files); });
   var zone = document.getElementById('upload-zone');
   zone.addEventListener('dragover', function(e) { e.preventDefault(); zone.classList.add('drag-over'); });
   zone.addEventListener('dragleave', function() { zone.classList.remove('drag-over'); });
   zone.addEventListener('drop', function(e) {
-    e.preventDefault();
-    zone.classList.remove('drag-over');
-    handleFiles(e.dataTransfer.files);
+    e.preventDefault(); zone.classList.remove('drag-over'); handleFiles(e.dataTransfer.files);
   });
+  renderGuidelinesCards();
 });
 
 function selectReviewType(card) {
@@ -526,7 +1142,7 @@ function selectReviewType(card) {
 
 function handleFiles(files) {
   for (var i = 0; i < files.length; i++) {
-    if (uploadedFiles.length >= 3) { alert('Maximum 3 files allowed.'); break; }
+    if (uploadedFiles.length >= 3) { alert('Maximum 3 files.'); break; }
     var f = files[i];
     if (!uploadedFiles.find(function(x) { return x.name === f.name; })) uploadedFiles.push(f);
   }
@@ -555,7 +1171,7 @@ function readFileAsText(file) {
     return new Promise(function(resolve, reject) {
       var reader = new FileReader();
       reader.onload = function(e) {
-        if (typeof mammoth === 'undefined') { resolve('[Word file: ' + file.name + ' — could not load mammoth.js. Check internet connection.]'); return; }
+        if (typeof mammoth === 'undefined') { resolve('[Word file: ' + file.name + ' — mammoth.js unavailable]'); return; }
         mammoth.extractRawText({ arrayBuffer: e.target.result })
           .then(function(r) { resolve('[Word document: ' + file.name + ']\n' + r.value); })
           .catch(function(err) { reject(new Error('Could not read Word file: ' + err.message)); });
@@ -575,6 +1191,9 @@ function readFileAsText(file) {
 async function runFileReview() {
   if (!uploadedFiles.length) { alert('Please upload at least one file.'); return; }
   setLoading('upload-results', 'upload-btn', true);
+  clearInlineChat('upload');
+  document.getElementById('upload-chat').classList.remove('visible');
+  document.getElementById('upload-export').classList.remove('visible');
   try {
     var context = document.getElementById('upload-context').value.trim();
     var fileContents = [];
@@ -584,55 +1203,26 @@ async function runFileReview() {
     }
     var instructions = {
       grant: 'Perform a grant budget review: check for inconsistencies, verify math and rates, flag missing categories, and check funder compliance.',
-      variance: 'Perform a variance analysis: compare planned vs. actual figures, calculate variances, flag outliers above 10%, and explain what significant variances suggest.',
-      version: 'Perform a version comparison: identify what changed, assess materiality, and flag anything needing explanation.',
-      general: 'Perform a general financial review: identify errors, inconsistencies, unusual items, math issues, and provide actionable recommendations.'
+      variance: 'Perform a variance analysis: compare planned vs. actual, calculate variances, flag outliers above 10%.',
+      version: 'Perform a version comparison: identify changes, assess materiality, flag anything needing explanation.',
+      general: 'Perform a general financial review: identify errors, inconsistencies, unusual items, math issues, and provide recommendations.'
     };
-    var prompt = 'You are a financial analyst reviewing uploaded budget documents. ' + instructions[selectedReviewType] + '\n\n' + (context ? 'ADDITIONAL CONTEXT:\n' + context + '\n\n' : '') + 'UPLOADED FILES:\n' + fileContents.join('\n\n') + '\n\nRespond ONLY in this format:\n\n## Summary\n2-3 sentences on what you found overall.\n\n## Detailed findings\n\u2705 [item] — looks correct\n\u26a0\ufe0f [item] — needs review\n\u274c [item] — clear error or issue\n\ud83d\udd35 [item] — recommendation or note\n\n## Overall assessment\n2-3 sentences on readiness and most critical next steps.';
-    renderResults('upload-results', await callClaude(prompt));
+    var fullContent = fileContents.join('\n\n');
+    var prompt = 'You are a financial analyst. ' + instructions[selectedReviewType] + '\n\n' + (context ? 'CONTEXT:\n' + context + '\n\n' : '') + 'FILES:\n' + fullContent + '\n\nRespond ONLY in this format:\n\n## Summary\n2-3 sentences overall.\n\n## Detailed findings\n\u2705 [item] — looks correct\n\u26a0\ufe0f [item] — needs review\n\u274c [item] — clear error\n\ud83d\udd35 [item] — recommendation\n\n## Overall assessment\n2-3 sentences on readiness and next steps.' + CAVEAT_INSTRUCTIONS;
+    var result = await callClaude(prompt);
+    renderResults('upload-results', result, 'upload');
+    showInlineChat('upload', (context ? 'CONTEXT:\n' + context + '\n\n' : '') + fullContent + '\n\nANALYSIS RESULT:\n' + result);
   } catch(e) { showError('upload-results', e.message); }
   document.getElementById('upload-btn').disabled = false;
 }
 
-// ── Chat ─────────────────────────────────────────────────
+// ── Standalone Chat ──────────────────────────────────────
 var chatHistory = [];
 var chatBusy = false;
 
 function handleChatKey(e) {
   if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChatMessage(); }
 }
-
-function appendMessage(role, text) {
-  var empty = document.getElementById('chat-empty');
-  if (empty) empty.remove();
-  var messages = document.getElementById('chat-messages');
-  var div = document.createElement('div');
-  div.className = 'msg ' + role;
-  var label = document.createElement('div');
-  label.className = 'msg-label';
-  label.textContent = role === 'user' ? 'You' : 'Claude';
-  var bubble = document.createElement('div');
-  bubble.className = 'msg-bubble';
-  bubble.textContent = text;
-  div.appendChild(label);
-  div.appendChild(bubble);
-  messages.appendChild(div);
-  messages.scrollTop = messages.scrollHeight;
-}
-
-function showTyping() {
-  var empty = document.getElementById('chat-empty');
-  if (empty) empty.remove();
-  var messages = document.getElementById('chat-messages');
-  var div = document.createElement('div');
-  div.className = 'msg assistant chat-typing';
-  div.id = 'typing-indicator';
-  div.innerHTML = '<div class="msg-bubble"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
-  messages.appendChild(div);
-  messages.scrollTop = messages.scrollHeight;
-}
-
-function removeTyping() { var t = document.getElementById('typing-indicator'); if (t) t.remove(); }
 
 async function sendChatMessage() {
   if (chatBusy) return;
@@ -642,18 +1232,28 @@ async function sendChatMessage() {
   input.value = '';
   chatBusy = true;
   document.getElementById('chat-send-btn').disabled = true;
-  appendMessage('user', text);
+
+  var empty = document.getElementById('chat-empty');
+  if (empty) empty.remove();
+  var messages = document.getElementById('chat-messages');
+  messages.appendChild(createMsgEl('user', text));
   chatHistory.push({ role: 'user', content: text });
-  showTyping();
+
+  var typingEl = createTypingEl();
+  messages.appendChild(typingEl);
+  messages.scrollTop = messages.scrollHeight;
+
   try {
-    var reply = await callClaude(chatHistory, 'You are a helpful financial and grant management assistant embedded in a budget review dashboard. Help with grant budgets, compliance, financial analysis, budget justifications, and related topics. Be concise, practical, and direct.');
-    removeTyping();
-    appendMessage('assistant', reply);
+    var reply = await callClaude(chatHistory, SYSTEM_PROMPT);
+    typingEl.remove();
+    messages.appendChild(createMsgEl('assistant', reply));
     chatHistory.push({ role: 'assistant', content: reply });
   } catch(e) {
-    removeTyping();
-    appendMessage('assistant', 'Sorry, something went wrong: ' + e.message);
+    typingEl.remove();
+    messages.appendChild(createMsgEl('assistant', 'Sorry, something went wrong: ' + e.message));
   }
+
+  messages.scrollTop = messages.scrollHeight;
   chatBusy = false;
   document.getElementById('chat-send-btn').disabled = false;
   input.focus();
@@ -663,6 +1263,76 @@ function clearChat() {
   chatHistory = [];
   document.getElementById('chat-messages').innerHTML = '<div class="chat-empty" id="chat-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><p><strong>Ask Claude anything.</strong><br>Great for grant strategy, budget questions, compliance guidance, or thinking through a problem.</p></div>';
 }
+
+// ── Inline chat file attachments ─────────────────────────
+var inlineAttachments = { grant: null, variance: null, version: null, upload: null };
+
+function handleInlineAttach(input, tabId) {
+  var file = input.files[0];
+  if (!file) return;
+  inlineAttachments[tabId] = file;
+  document.getElementById(tabId + '-attached-name').textContent = file.name;
+  document.getElementById(tabId + '-attached-preview').style.display = 'flex';
+  input.value = '';
+}
+
+function removeInlineAttachment(tabId) {
+  inlineAttachments[tabId] = null;
+  document.getElementById(tabId + '-attached-preview').style.display = 'none';
+  document.getElementById(tabId + '-attached-name').textContent = '';
+}
+
+// Replace sendInlineChat with attachment-aware version
+sendInlineChat = async function(tabId) {
+  if (inlineBusy[tabId]) return;
+  var input = document.getElementById(tabId + '-chat-input');
+  var text = input.value.trim();
+  var attachment = inlineAttachments[tabId];
+  if (!text && !attachment) return;
+
+  input.value = '';
+  inlineBusy[tabId] = true;
+  document.getElementById(tabId + '-chat-send').disabled = true;
+
+  var messagesEl = document.getElementById(tabId + '-chat-messages');
+  var displayText = text || ('Attached: ' + (attachment ? attachment.name : ''));
+  var messageContent = text;
+
+  if (attachment) {
+    try {
+      var fileText = await readFileAsText(attachment);
+      var truncated = fileText.length > 8000 ? fileText.slice(0, 8000) + '\n...[truncated]' : fileText;
+      messageContent = (text ? text + '\n\n' : '') + '=== ATTACHED FILE: ' + attachment.name + ' ===\n' + truncated;
+      displayText = (text ? text + ' ' : '') + '[+ ' + attachment.name + ']';
+    } catch(err) {
+      messageContent = (text || '') + '\n\n[Could not read file: ' + attachment.name + ']';
+    }
+    removeInlineAttachment(tabId);
+  }
+
+  var userEl = createMsgEl('user', displayText);
+  messagesEl.appendChild(userEl);
+  inlineHistories[tabId].push({ role: 'user', content: messageContent });
+
+  var typingEl = createTypingEl();
+  messagesEl.appendChild(typingEl);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+
+  try {
+    var reply = await callClaude(inlineHistories[tabId], SYSTEM_PROMPT);
+    typingEl.remove();
+    messagesEl.appendChild(createMsgEl('assistant', reply));
+    inlineHistories[tabId].push({ role: 'assistant', content: reply });
+  } catch(e) {
+    typingEl.remove();
+    messagesEl.appendChild(createMsgEl('assistant', 'Error: ' + e.message));
+  }
+
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+  inlineBusy[tabId] = false;
+  document.getElementById(tabId + '-chat-send').disabled = false;
+  input.focus();
+};
 </script>
 </body>
 </html>
